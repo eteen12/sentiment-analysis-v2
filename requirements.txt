@@ -1,0 +1,6 @@
+streamlit
+textblob
+yfinance
+pandas
+requests
+beautifulsoup4
