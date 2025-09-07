@@ -27,7 +27,7 @@ def main():
             st.session_state.news_df = pd.DataFrame()
             st.session_state.combined_sentiment = None
             st.rerun()
-
+                
     # perform analysis when button is pressed or if we have saved results
     if analyze_button:
         results = perform_stock_news_analysis(ticker)
