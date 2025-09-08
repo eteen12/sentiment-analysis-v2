@@ -108,11 +108,12 @@ def process_article(article,index,total_articles, status_text):
     article_url = article.get('link','')
     title = article.get('title','')
     summary = article.get('summary','')
+    publisher = article.get('publisher', 'Unknown Publisher')
 
     #For headline sentiment
     headline_text = f"{title} {summary}"
     headline_polarity,headline_subjectivity, headline_sentiment = analyze_sentiment(headline_text)
-    analyze_sentiment=(headline_text)
+   
 
     # Get the full text if the URL is there
     article_full_text = ""
@@ -130,6 +131,7 @@ def process_article(article,index,total_articles, status_text):
 
     return{
         'title': title,
+        'publisher': publisher,
         'published': article.get('published','Unknown'),
         'link': article_url,
         'headline_polarity': headline_polarity,

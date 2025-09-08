@@ -7,6 +7,7 @@ def setup_page():
         layout="wide",
         initial_sidebar_state="expanded"
     )
+    create_sidebar()
 
 def initialize_session_state():
     # init session state var's if they dont exist

@@ -1,5 +1,12 @@
 import streamlit as st 
 import pandas as pd
+from config import setup_page, initialize_session_state
+from data import perform_stock_news_analysis
+from ui import display_analysis_results
+
+setup_page()
+initialize_session_state()
+
 
 def main():
 
@@ -26,14 +33,14 @@ def main():
             st.session_state.ticker = ""
             st.session_state.news_df = pd.DataFrame()
             st.session_state.combined_sentiment = None
-            st.rerun()
+            st.rerun()  
                 
     # perform analysis when button is pressed or if we have saved results
     if analyze_button:
         results = perform_stock_news_analysis(ticker)
         if results:
             display_analysis_results(ticker, *results)
-    elif st.session_state_analysis_performed and st.session_state.ticker:
+    elif st.session_state.analysis_performed and st.session_state.ticker:
         # display
         display_analysis_results(
             st.session_state.ticker,
